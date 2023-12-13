@@ -1,4 +1,3 @@
-# In your forms.py file
 
 from django import forms
 from .models import Contact
