@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Details{% endblock %}
+
+{% block content %}
+    <h2>Contact Details</h2>
+    <p>Name: {{ contact.name }}</p>
+    <p>Email: {{ contact.email }}</p>
+    <p>Phone: {{ contact.phone }}</p>
+    <a href="{% url 'update_contact' contact.id %}">Update Contact</a>
+    <a href="{% url 'delete_contact' contact.id %}">Delete Contact</a>
+    <a href="{% url 'list_contact' %}">Back to Contact List</a>
+{% endblock %}

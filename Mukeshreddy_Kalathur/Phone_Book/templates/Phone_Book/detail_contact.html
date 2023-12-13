@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Detail Contact {% endblock %}
+
+{% block content %}
+    <h2>Detail Contact </h2>
+    <!-- Display contact details here -->
+    <a href="{% url 'Update_contact' contact.id %}">Update Contact</a>
+    <a href="{% url 'delete_contact' contact.id %}">Delete Contact</a>
+    <a href="{% url 'contact_list' %}">Back to Contact List</a>
+{% endblock %}
