@@ -1,11 +1,32 @@
-{% extends 'base.html' %}
-
-{% block title %}Detail Contact {% endblock %}
+{% extends 'Phone_Book/base.html' %}
 
 {% block content %}
-    <h2>Detail Contact </h2>
-    <!-- Display contact details here -->
-    <a href="{% url 'Update_contact' contact.id %}">Update Contact</a>
-    <a href="{% url 'delete_contact' contact.id %}">Delete Contact</a>
-    <a href="{% url 'contact_list' %}">Back to Contact List</a>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h2 class="card-title">Contact Details</h2>
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th>Name:</th>
+                                <td>{{ contact.name }}</td>
+                            </tr>
+                            <tr>
+                                <th>Email:</th>
+                                <td>{{ contact.email }}</td>
+                            </tr>
+                            <tr>
+                                <th>Phone:</th>
+                                <td>{{ contact.phone }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="{% url 'Phone_Book:edit_contact' contact.id %}" class="btn btn-warning">Edit Contact</a>
+                    <a href="{% url 'Phone_Book:delete_contact' contact.id %}" class="btn btn-danger">Delete Contact</a>
+                    <a href="{% url 'Phone_Book:list_contact' %}" class="btn btn-primary">Back to Contact List</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

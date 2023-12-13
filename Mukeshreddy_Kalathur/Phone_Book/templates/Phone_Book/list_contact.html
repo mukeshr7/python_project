@@ -1,13 +1,36 @@
-{% extends 'base.html' %}
-
-{% block title %}Contact List{% endblock %}
+{% extends 'Phone_Book/base.html' %}
 
 {% block content %}
-    <h2>Contact List</h2>
-    <ul>
-        {% for contact in contacts %}
-            <li><a href="{% url 'list_contact' contact.id %}">{{ contact.name }}</a></li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'create_contact' %}">Create a New Contact</a>
+    <div class="container mt-5">
+        <h2 class="text-center">Contact List</h2>
+        
+        <a href="{% url 'Phone_Book:create_contact' %}" class="btn btn-primary mb-3">Create a New Contact</a>
+        
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for contact in contacts %}
+                        <tr>
+                            <td>{{ contact.name }}</td>
+                            <td>{{ contact.phone }}</td>
+                            <td>{{ contact.email }}</td>
+                            <td>
+                                <a href="{% url 'Phone_Book:detail_contact' contact.id %}" class="btn btn-info btn-sm">Details</a>
+                                <a href="{% url 'Phone_Book:edit_contact' contact.id %}" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="{% url 'Phone_Book:delete_contact' contact.id %}" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock %}

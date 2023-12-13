@@ -1,13 +1,19 @@
-{% extends 'base.html' %}
-
-{% block title %}Delete Contact{% endblock %}
+{% extends 'Phone_Book/base.html' %}
 
 {% block content %}
-    <h2>Delete Contact</h2>
-    <p>Are you sure you want to delete {{ contact.name }}?</p>
-    <form method="post" action="{% url 'delete_contact' contact.id %}">
-        {% csrf_token %}
-        <input type="submit" value="Delete">
-    </form>
-    <a href="{% url 'list_contact' %}">Cancel</a>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h2 class="card-title">Delete Contact</h2>
+                    <p>Are you sure you want to delete {{ contact.name }}?</p>
+                    <form method="post" action="{% url 'Phone_Book:delete_contact' contact.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    <a href="{% url 'Phone_Book:list_contact' %}" class="btn btn-secondary mt-3">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

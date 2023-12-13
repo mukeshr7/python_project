@@ -5,11 +5,11 @@
         <div class="col-md-6">
             <div class="card mt-5">
                 <div class="card-body">
-                    <h2 class="card-title">Create Contact</h2>
-                    <form method="post" action="{% url 'Phone_Book:create_contact' %}" class="needs-validation" novalidate>
+                    <h2 class="card-title">Edit Contact</h2>
+                    <form method="post" action="{% url 'Phone_Book:edit_contact' contact.id %}">
                         {% csrf_token %}
                         {{ form.as_p }}
-                        <button type="submit" class="btn btn-success mt-3">Create Contact</button>
+                        <button type="submit" class="btn btn-success">Save Changes</button>
                     </form>
                     <a href="{% url 'Phone_Book:list_contact' %}" class="btn btn-secondary mt-3">Back to Contact List</a>
                 </div>
